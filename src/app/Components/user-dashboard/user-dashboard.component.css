@@ -1,0 +1,47 @@
+/* Max width for ChatGPT-like input */
+.chatgpt-search-footer {
+  position: sticky;
+  bottom: 0;
+  border-top: 1px solid #333;
+}
+
+.input-wrapper {
+  max-width: 720px;
+  flex-grow: 1;
+}
+
+.chatgpt-input {
+  width: 100%;
+  background-color: #343541;
+  border: 1px solid #4e4f5c;
+  border-radius: 1rem;
+  padding: 0.8rem 1.2rem;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.chatgpt-input::placeholder {
+  color: #999;
+}
+
+.chatgpt-input:focus {
+  border-color: #10a37f;
+  box-shadow: 0 0 0 2px rgba(16, 163, 127, 0.2);
+}
+
+/* Send button */
+.send-btn {
+  background-color: #10a37f;
+  border: none;
+  width: 44px;
+  height: 44px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-btn:hover {
+  background-color: #0d8d6f;
+}

@@ -20,17 +20,25 @@ password:''
 
 getToken() {
   this.service.generateToken(this.login).subscribe(res => {
-    if (res && res.trim() !== '') {
-            this.token = res;
-            console.log(res);
+    if (res && res.jwt) {
+      this.token = res.jwt;
+      console.log(res.jwt);
 
-            this.service.setToken(res);
-     this.router.navigate(['/user-dashboard']);
-
+      this.service.setToken(res.jwt); // set correct token
+localStorage.setItem('token', res.jwt);
+      if (res.role === 'ROLE_Admin') {
+        this.router.navigate(['/admin-dashboard']);
+      } else {
+        this.router.navigate(['/user-dashboard']);
+      }
     } else {
-      alert("Incorrect Credentials..");
+      alert("Incorrect Credentials.");
     }
+  }, err => {
+    alert("Login Failed. Please check credentials.");
+    console.error(err);
   });
+
 }
 
 }

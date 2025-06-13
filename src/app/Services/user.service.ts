@@ -11,9 +11,8 @@ export class UserService {
 
   token:any
 
-generateToken(login:any):Observable<any>
-{
- return this.http.post("http://localhost:8080/authenticate/login",login,{responseType:'text'})
+generateToken(login: any): Observable<{ jwt: string, role: string }> {
+  return this.http.post<{ jwt: string, role: string }>("http://localhost:8080/authenticate/login", login);
 }
 
 setToken(token:any)

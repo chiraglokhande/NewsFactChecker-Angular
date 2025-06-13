@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { HomepageComponent } from './Components/homepage/homepage.component';
 import { UserDashboardComponent } from './Components/user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { AllUsersComponent } from './Components/all-users/all-users.component';
+import { EditUserComponent } from './Components/edit-user/edit-user.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dash
     HomepageComponent,
     UserDashboardComponent,
     AdminDashboardComponent,
+    AllUsersComponent,
+    EditUserComponent,
 
   ],
   imports: [

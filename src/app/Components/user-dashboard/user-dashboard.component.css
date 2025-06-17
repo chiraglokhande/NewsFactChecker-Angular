@@ -1,6 +1,20 @@
-/* App Container */
+/* Container Styling */
 .app-container {
   font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Header */
+.navbar-brand {
+  cursor: pointer;
+}
+
+/* Info Section */
+section h3 {
+  font-size: 1.5rem;
+}
+
+section p {
+  color: #ccc;
 }
 
 /* ChatGPT-style Search Footer */
@@ -75,8 +89,14 @@ footer.text-center a:hover {
   text-decoration: underline;
 }
 
-/* Responsive Improvements */
-@media (max-width: 576px) {
+/* 🔥 Message color fix */
+.text-muted {
+  color: #ffffff !important;
+  opacity: 0.7;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
   .chatgpt-input {
     font-size: 0.9rem;
     padding: 0.6rem 1rem;
@@ -88,7 +108,15 @@ footer.text-center a:hover {
     font-size: 1rem;
   }
 
+  section h3 {
+    font-size: 1.25rem;
+  }
+
   footer.text-center small {
     font-size: 0.75rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.2rem;
   }
 }

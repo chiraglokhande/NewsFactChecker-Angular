@@ -22,7 +22,6 @@ getToken() {
   this.service.generateToken(this.login).subscribe(res => {
     if (res && res.jwt) {
       this.token = res.jwt;
-      console.log(res.jwt);
 
       this.service.setToken(res.jwt); // set correct token
 localStorage.setItem('token', res.jwt);

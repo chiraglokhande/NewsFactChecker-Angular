@@ -26,7 +26,6 @@ export class UserDashboardComponent {
     this.service.factCheck(this.query, token).subscribe(res => {
       this.Claims = res;
       this.searched = true;
-      console.log(res);
     }, err => {
       console.error("Error:", err);
     });

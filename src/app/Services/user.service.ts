@@ -12,7 +12,7 @@ export class UserService {
   token:any
 
 generateToken(login: any): Observable<{ jwt: string, role: string }> {
-  return this.http.post<{ jwt: string, role: string }>("http://localhost:8080/authenticate/login", login);
+  return this.http.post<{ jwt: string, role: string }>("https://newsfactchecker-backend-production.up.railway.app/authenticate/login", login);
 }
 
 setToken(token:any)
@@ -27,12 +27,12 @@ getToken():Observable<any>
 
 registerUser(user:any)
 {
-  return this.http.post("http://localhost:8080/authenticate/register",user,{responseType:'text'})
+  return this.http.post("https://newsfactchecker-backend-production.up.railway.app/authenticate/register",user,{responseType:'text'})
 }
 
 factCheck(query: any, token: any): Observable<any> {
   const header = new HttpHeaders().set("Authorization", 'Bearer ' + token);
   const param = new HttpParams().set("query", query);
-  return this.http.get("http://localhost:8080/factcheck/check", { headers: header, params: param });
+  return this.http.get("https://newsfactchecker-backend-production.up.railway.app/factcheck/check", { headers: header, params: param });
 }
 }

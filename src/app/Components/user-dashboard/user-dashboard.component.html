@@ -13,7 +13,7 @@
 
   <!-- Results Section -->
   <main class="container mb-4 flex-grow-1 overflow-auto">
-    <div *ngIf="Claims?.claims?.length > 0; else noResult">
+    <ng-container *ngIf="Claims?.claims?.length > 0; else noResult">
       <div *ngFor="let claim of Claims.claims" class="card bg-secondary text-white mb-4 p-3 shadow-sm rounded-4">
         <h5><strong>Claim:</strong></h5>
         <p class="mb-2">{{ claim.text }}</p>
@@ -25,30 +25,42 @@
           <p><strong>Rating:</strong> {{ review.textualRating }}</p>
         </div>
       </div>
-    </div>
+    </ng-container>
 
     <ng-template #noResult>
-      <p class="text-center text-muted">No results yet. Enter a query below to get started.</p>
+      <p class="text-center text-muted" *ngIf="searched">
+        🚫 Sorry, no fact-check results found for your query.
+      </p>
+      <p class="text-center text-muted" *ngIf="!searched">
+        🕵️ No results yet. Enter a query below to get started.
+      </p>
     </ng-template>
   </main>
 
-  <!-- ChatGPT-style Search at Bottom -->
-<!-- ChatGPT-style Search at Bottom -->
-<footer class="chatgpt-search-footer bg-black py-3 px-4">
-  <form (ngSubmit)="searchFact()" class="d-flex justify-content-center align-items-center gap-2">
-    <div class="input-wrapper w-100">
-      <input
-        [(ngModel)]="query"
-        name="query"
-        type="text"
-        class="chatgpt-input"
-        placeholder="Type your query here..."
-        required />
-    </div>
-    <button class="btn btn-primary rounded-circle send-btn" type="submit">
-      🔍
-    </button>
-  </form>
-</footer>
+  <!-- Search at Bottom -->
+  <footer class="chatgpt-search-footer bg-black py-3 px-4">
+    <form (ngSubmit)="searchFact()" class="d-flex justify-content-center align-items-center gap-2">
+      <div class="input-wrapper w-100">
+        <input
+          [(ngModel)]="query"
+          name="query"
+          type="text"
+          class="chatgpt-input"
+          placeholder="Type your query here..."
+          required />
+      </div>
+      <button class="btn btn-primary rounded-circle send-btn" type="submit">🔍</button>
+    </form>
+  </footer>
+
+  <!-- Footer Signature -->
+  <footer class="bg-dark text-center text-muted py-2">
+    <small>
+      Developed by <strong>Chirag Lokhande</strong> |
+      <a href="https://www.linkedin.com/in/chiraglokhande" target="_blank" class="text-info text-decoration-none">
+        LinkedIn
+      </a>
+    </small>
+  </footer>
 
 </div>

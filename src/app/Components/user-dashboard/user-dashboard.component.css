@@ -1,8 +1,59 @@
-/* Max width for ChatGPT-like input */
+/* Base layout */
+.app-container {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #000;
+  padding: 1rem 2rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #10a37f !important;
+  text-decoration: none;
+}
+
+/* Info section */
+section {
+  padding: 1rem 0;
+}
+
+h3 {
+  color: #ffffff;
+}
+
+.text-muted {
+  color: #999 !important;
+}
+
+/* Result Cards */
+.card {
+  background-color: #2a2b32;
+  border: 1px solid #444;
+  border-radius: 1rem;
+  padding: 1.2rem;
+}
+
+.card strong {
+  color: #10a37f;
+}
+
+.card p {
+  margin-bottom: 0.5rem;
+}
+
+/* ChatGPT-style Search Bar */
 .chatgpt-search-footer {
   position: sticky;
   bottom: 0;
+  background-color: #000;
   border-top: 1px solid #333;
+  padding: 1rem 2rem;
+  z-index: 10;
 }
 
 .input-wrapper {
@@ -40,8 +91,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
 }
 
 .send-btn:hover {
   background-color: #0d8d6f;
+}
+
+/* Footer signature */
+footer.bg-dark.text-center {
+  border-top: 1px solid #444;
+  margin-top: auto;
+}
+
+footer small {
+  color: #aaa;
+}
+
+footer a {
+  color: #10a37f;
+}
+
+footer a:hover {
+  color: #0d8d6f;
+  text-decoration: underline;
 }

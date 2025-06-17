@@ -11,11 +11,11 @@ import { switchMap } from 'rxjs';
 export class UserDashboardComponent {
 
   constructor(private service:UserService){}
+  query: any;
+  token: any;
+  Claims: any = null;
+  searched = false;
 
-query:any;
-token:any;
-
-Claims:any=null
   searchFact() {
     const token = this.service.getToken(); // ✅ Synchronous
     if (!token) {
@@ -25,12 +25,12 @@ Claims:any=null
 
     this.service.factCheck(this.query, token).subscribe(res => {
       this.Claims = res;
+      this.searched = true;
       console.log(res);
     }, err => {
       console.error("Error:", err);
     });
   }
-
-  
-
 }
+
+
